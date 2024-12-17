@@ -42,3 +42,18 @@ def play_poker():
     Your aim is to bluff your opponent.
     There are 3 betting rounds      
     """)
+    # Initialize and shuffle the deck
+    deck = create_deck()
+    shuffle_deck(deck)
+
+    # Deal cards to Player 1 and Player 2
+    player_1_hand = deal_cards(deck)
+    player_2_hand = deal_cards(deck)
+
+    # Display Player 1's hand (hide Player 2's hand for now)
+    display_hand("Player 1", player_1_hand)
+    show_chips("Player 1", 1000)
+    show_chips("Player 2", 1000)
+    player_1_chips = 1000
+    computer_chips = 1000
+    pot = 0
