@@ -21,3 +21,16 @@ def deal_cards(deck, num_cards=4):
 def display_hand(player, hand):
     hand_str = ', '.join(f"({card['rank']} of {card['suit']})" for card in hand)
     print(f"{player}'s hand: {hand_str}")
+    
+"""Simple poker hand evaluation placeholder (expand as needed)"""
+def evaluate_hand(hand):
+
+# For simplicity, return a placeholder score based on ranks
+    rank_values = {rank: index for index, rank in enumerate(RANKS, start=2)}
+    score = sum(rank_values[card['rank']] for card in hand)
+    return score
+"""Player 2 (Computer) AI logic"""
+def computer_decision():
+    decision = random.choice(['Check', 'Bet', 'Fold','Raise'])
+    print("Player 2 (Computer) decides to:", decision)
+    return decision
