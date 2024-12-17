@@ -21,8 +21,11 @@ def deal_cards(deck, num_cards=4):
 def display_hand(player, hand):
     hand_str = ', '.join(f"({card['rank']} of {card['suit']})" for card in hand)
     print(f"{player}'s hand: {hand_str}")
+
+def show_chips(player, chips):
+    print(f"{player}'s chips: {chips}")
     
-#Simple poker hand evaluation placeholder (expand as needed)""
+# poker hand evaluation placeholder 
 def evaluate_hand(hand):
 # For simplicity, return a placeholder score based on ranks
     rank_values = {rank: index for index, rank in enumerate(RANKS, start=2)}
