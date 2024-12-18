@@ -144,23 +144,25 @@ def play_poker():
             pot += raise_amount
             print(f"I(comp) raise and bet by {raise_amount} and remain with {computer_chips} chips.")
             print(f'pot💰 is {pot}')
-            # Show Player 2's hand at the end
-            display_hand("Player 2", player_2_hand)
 
-            # Evaluate and compare hands
-            player_1_score = evaluate_hand(player_1_hand)
-            player_2_score = evaluate_hand(player_2_hand)
+    # Show Player 2's hand at the end
+    display_hand("Player 2", player_2_hand)
 
-            print("\nFinal Scores:")
-            print(f"Player 1: {player_1_score}")
-            print(f"Player 2: {player_2_score}")
+    # Evaluate and compare hands
+    player_1_score = evaluate_hand(player_1_hand)
+    player_2_score = evaluate_hand(player_2_hand)
 
-            if player_1_score > player_2_score:
-                print("Player 1 wins!")
-            elif player_2_score > player_1_score:
-                print("Player 2 wins!")
-            else:
-                print("It's a tie!")
+    print("\nFinal Scores:")
+    print(f"Player 1: {player_1_score}")
+    print(f"Player 2: {player_2_score}")
+
+    if player_1_score > player_2_score:
+        print("Player 1 wins!")
+    elif player_2_score > player_1_score:
+        print("Player 2 wins!")
+    else:
+        print("It's a tie!")
+
 #run the game
 if __name__ == "__main__":
     play_poker()
