@@ -154,12 +154,12 @@ def play_poker():
 
     print("\nFinal Scores:")
     print(f"Player 1: {player_1_score}")
-    print(f"Player 2: {player_2_score}")
+    print(f"Player 2(🤖): {player_2_score}")
 
     if player_1_score > player_2_score:
-        print("Player 1 wins!")
+        print(f"Player 1 wins {pot} chips🥳")
     elif player_2_score > player_1_score:
-        print("Player 2 wins!")
+        print(f"Player 2 wins {pot} chips🥳")
     else:
         print("It's a tie!")
 
