@@ -14,8 +14,8 @@ def shuffle_deck(deck):
 
 # Deal cards to a player
 def deal_cards(deck, num_cards=4):
-    hand = deck[:num_cards]# Remove the dealt cards from the deck through slicing
-    del deck[:num_cards]
+    hand = deck[:num_cards]#slicing the deck
+    del deck[:num_cards]#removes the dealt cards from deck
     return hand
 
 # Display the cards in a player's hand
@@ -23,13 +23,16 @@ def display_hand(player, hand):
     hand_str = ', '.join(f"({card['rank']} of {card['suit']})" for card in hand)
     print(f"{player}'s hand: {hand_str}")
 
+def place_ante(player, ante):
+    print(f"{player} places the ante of {ante} chips.")
 
+#function to show the chips
 def show_chips(player, chips):
     print(f"{player}'s chips: {chips}")
 
-# Simple poker hand evaluation placeholder (expand as needed)
+# Poker hand evaluation placeholder function
 def evaluate_hand(hand):
-    # For simplicity, return a placeholder score based on ranks
+    #  Returns a placeholder score based on ranks
     rank_values = {rank: index for index, rank in enumerate(RANKS, start=2)}
     score = sum(rank_values[card['rank']] for card in hand)
     return score
@@ -43,13 +46,16 @@ def computer_decision():
 # Main game logic
 def play_poker():
     print("Welcome to Poker (FOUR-CARD-STUD 😎)!")
-    print("RULES AND GAME PLAY")
     print("""
+            RULES AND GAME PLAY
     <--Players are given 4 card at once.-->
+    <--Each player places an ante of 100 chips.-->
+    <--The ante is 100 chips.-->
     <--There are 3 betting rounds.-->
     <--Player 1 can check, bet, fold or raise.-->
     <--Player 2 (Computer) can check, bet, fold or raise.-->
-    <--The player with the highest hand wins.-->  
+    <--The highest hand is determined by adding the values of each card in the hand.-->
+    <--The player with the highest hand wins.-->
     """)
 
     # Initialize and shuffle the deck
@@ -64,9 +70,19 @@ def play_poker():
     display_hand("Player 1", player_1_hand)
     show_chips("Player 1", 1000)
     show_chips("Player 2", 1000)
+
+
     player_1_chips = 1000
     computer_chips = 1000
     pot = 0
+
+    place_ante("Player 1", 100)
+    place_ante("Player 2(Computer)", 100)
+    player_1_chips -= 100
+    computer_chips -= 100
+    pot += 200
+    print(f'pot💰 is {pot}')
+
 
     # Gameplay loop (simplified)
     for round_num in range(1, 4): # Flop, Turn, River
@@ -113,6 +129,7 @@ def play_poker():
 
         player_2_action = computer_decision()#computer decision
 
+        #if the player folds
         if player_2_action == 'Fold':
             print("Player 2 folds😢. Player 1 wins!🥳")
             display_hand("Player 1 hand was", player_1_hand)

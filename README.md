@@ -37,11 +37,13 @@ To get started with the game, simply run the `app.py` file. The game will guide 
 ------------
 
 No installation required. Simply clone the repository and run the `app.py` file.
+    `git@github.com:posh9376/poker-python-project-CLI-.git`
 
 ## Usage
 -----
 
 1. Run the `app.py` file.
+        `python3 app.py`
 2. Follow the in-game prompts to play the game.
 
 ## Contributing
