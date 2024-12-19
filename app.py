@@ -1,4 +1,5 @@
 import random
+from tabulate import tabulate
 
 # Define the card suits and ranks
 SUITS = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
@@ -47,7 +48,7 @@ def computer_decision():
 def play_poker():
     print("Welcome to Poker (FOUR-CARD-STUD 😎)!")
     print("""
-            RULES AND GAME PLAY
+            RULES AND GAME PLAY📜
     <--Players are given 4 card at once.-->
     <--Each player places an ante of 100 chips.-->
     <--The ante is 100 chips.-->
@@ -162,7 +163,7 @@ def play_poker():
             print(f"I(comp) raise and bet by {raise_amount} and remain with {computer_chips} chips.")
             print(f'pot💰 is {pot}')
 
-    # Show Player 2's hand at the end
+    # Show Player 1's and Player 2's hand at the end
     display_hand("Player 1", player_1_hand)
     display_hand("Player 2", player_2_hand)
 
@@ -170,9 +171,17 @@ def play_poker():
     player_1_score = evaluate_hand(player_1_hand)
     player_2_score = evaluate_hand(player_2_hand)
 
-    print("\nFinal Scores:")
-    print(f"Player 1: {player_1_score}")
-    print(f"Player 2(🤖): {player_2_score}")
+   # Define the data to be added
+    data = [
+        ["Player 1", player_1_score],
+        ["Player 2(comp)", player_2_score]
+    ]
+
+    # Define the headers for the table
+    headers = ["Player", "Score"]
+
+    # Print the table
+    print(tabulate(data, headers, tablefmt="grid"))
 
     if player_1_score > player_2_score:
         print(f"Player 1 wins {pot} chips🥳")
