@@ -75,7 +75,7 @@ def play_poker():
         current_bet = 100
         #if the player folds
         if player_1_action.lower() == 'fold':
-            print("Player 1 folds. Player 2 wins!")
+            print("Player 1 folds😢. Player 2 wins!🥳")
             display_hand("Player 1 hand was", player_1_hand)
             display_hand("Player 2 hand was", player_2_hand)
             return
@@ -84,7 +84,7 @@ def play_poker():
         elif player_1_action.lower() == 'bet':
             if current_bet > player_1_chips:
                 print("YOU BROKE 🙆🏽‍♂️.You don't have enough chips to bet that amount.")
-                print("Player 1 folds. Player 2 wins!")
+                print("Player 1 folds😢. Player 2 wins!🥳")
                 display_hand("Player 1 hand was", player_1_hand)
                 display_hand("Player 2 hand was", player_2_hand)
                 return
@@ -101,7 +101,7 @@ def play_poker():
                 continue
             if raise_amount > player_1_chips:
                 print("YOU BROKE 🙆🏽‍♂️.You don't have enough chips to raise that amount.")
-                print("Player 1 folds. Player 2 wins!🥳")
+                print("Player 1 folds😢. Player 2 wins!🥳")
                 display_hand("Player 1 hand was", player_1_hand)
                 display_hand("Player 2 hand was", player_2_hand)
                 return
@@ -111,10 +111,10 @@ def play_poker():
             print(f'pot💰 is {pot}')
 
 
-        player_2_action = computer_decision()
+        player_2_action = computer_decision()#computer decision
 
         if player_2_action == 'Fold':
-            print("Player 2 folds. Player 1 wins!")
+            print("Player 2 folds😢. Player 1 wins!🥳")
             display_hand("Player 1 hand was", player_1_hand)
             display_hand("Player 2 hand was", player_2_hand)
             return
@@ -122,7 +122,7 @@ def play_poker():
         elif player_2_action.lower() == 'bet':
             if current_bet > computer_chips:
                 print("COMP DOWN 🤖!!I don't have enough chips to bet that amount.")
-                print("Player 2 folds. Player 1 wins!🥳")
+                print("Player 2 folds😢. Player 1 wins!🥳")
                 display_hand("Player 1 hand was", player_1_hand)
                 display_hand("Player 2 hand was", player_2_hand)
                 return
@@ -136,7 +136,7 @@ def play_poker():
             raise_amount = random.randint(100, 500)
             if raise_amount > computer_chips:
                 print("COMP DOWN 🤖!!computer doesn't have enough chips to raise that amount.")
-                print("Player 2 folds. Player 1 wins!🥳")
+                print("Player 2 folds😢. Player 1 wins!🥳")
                 display_hand("Player 1 hand was", player_1_hand)
                 display_hand("Player 2 hand was", player_2_hand)
                 return
@@ -146,6 +146,7 @@ def play_poker():
             print(f'pot💰 is {pot}')
 
     # Show Player 2's hand at the end
+    display_hand("Player 1", player_1_hand)
     display_hand("Player 2", player_2_hand)
 
     # Evaluate and compare hands
